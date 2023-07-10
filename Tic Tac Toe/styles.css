@@ -1,0 +1,112 @@
+* {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+#title {
+
+    fill: white;
+    background-color: blue;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+
+#reset {
+
+    box-sizing: border-box;
+    width: 150px;
+    height: 50px;
+    border: 1px solid dodgerblue;
+    margin: auto;
+    border-radius: 4px;
+    background-color: dodgerblue;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer
+}
+
+
+#info {
+
+    color: dodgerblue;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+#container {
+
+    text-align: center;
+}
+
+
+rect {
+
+    fill: teal;
+    opacity: 0.5
+}
+
+
+circle {
+
+    display: none;
+    stroke: white;
+    stroke-width: 5px;
+    fill: none;
+}
+
+
+line {
+
+    display: none;
+    stroke: white;
+    stroke-width: 5px;
+    stroke-linecap: round;
+}
+
+
+#reset:hover {
+
+    opacity: 0.85;
+}
+
+
+#popup-container {
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white
+}
+
+
+.popup {
+
+    background: blue;
+    border-radius: 7px;
+    border: 2px solid white;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center
+}
+
+
+.popup button {
+
+    cursor: pointer;
+    background-color: white;
+    color: blue;
+    font-weight: bold;
+    border: 0;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+}

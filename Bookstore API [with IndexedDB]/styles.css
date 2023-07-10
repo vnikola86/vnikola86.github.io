@@ -1,0 +1,139 @@
+* {
+
+  font-family: 'Verdana', sans-serif;
+}
+
+
+.page-container {
+
+  margin: 2em 7% 5em;
+}
+
+
+table.data {
+
+  width: 100%;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+
+thead {
+
+  width: 100%;
+}
+
+
+tr.search {
+
+  width: 100%;
+  background-color: lightgray;
+
+}
+
+
+#search-container {
+
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 100%;
+}
+
+
+#search-section {
+
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    text-align: center;
+}
+
+
+thead input {
+
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline-color: lightgray;
+  padding: 0.5em;
+}
+
+
+#searchBtn {
+
+  background-color: darkblue;
+  color: white;
+  border-radius: 3px;
+  border-style: none;
+  padding: 0.5em 1em;
+  height: 100%;
+  cursor: pointer;
+  outline-color: lightblue;
+}
+
+
+tr.header {
+
+  display: grid;
+  width: 100%;
+  grid-template-columns: 5% 20% 20% 15% 10% 10% 20%
+}
+
+
+th, td {
+
+  text-align: center;
+  font-size: 1.25vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.35em 0 0.35em;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+
+th {
+
+  padding: 1em 0 1em;
+}
+
+
+#addBookModal .modal-body {
+
+  background-color: lightgreen;
+}
+
+
+#editBookModal .modal-body {
+
+  background-color: lightblue;
+}
+
+
+button.btn-edit {
+
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  border-style: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  outline-color: lightblue;
+}
+
+
+button.btn-delete {
+
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  border-style: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  outline-color: lightpink;
+}
+
+
+button.btn-delete:hover, button.btn-edit:hover {
+
+  opacity: 0.5;
+}
