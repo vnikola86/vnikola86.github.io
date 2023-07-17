@@ -1,0 +1,203 @@
+* {
+
+  margin: 0;
+  padding: 0;
+  font-family: 'Verdana', sans-serif
+}
+
+
+body {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: teal
+}
+
+
+.container {
+
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  width: 85%
+}
+
+
+.container > section {
+
+  width: 100%
+}
+
+
+.block {
+
+  padding: 2rem
+}
+
+
+.parameters {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10rem;
+  width: 100%;
+  background-color: orchid;
+  border-radius: 7px
+}
+
+
+.parameters .element {
+
+  margin-bottom: 1.5rem;
+  width: 100%
+}
+
+
+select {
+
+  margin-top: 0.5rem
+}
+
+
+.dimensions {
+
+  width: 100%
+}
+
+
+button {
+
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer
+}
+
+
+#reset {
+  color: limegreen;
+  background: white;
+  border: 1px solid limegreen;
+  transition: all 0.5s
+}
+
+
+#reset:hover {
+
+  color: white;
+  background: limegreen
+}
+
+
+#submit {
+
+  color: white;
+  background: blue;
+  border: 1px solid blue;
+  transition: all 0.5s
+}
+
+
+#submit:hover{
+
+  background: #0000D0;
+  border: 1px solid #0000D0;
+  transition: all 0.5s
+}
+
+
+#submit:disabled{
+
+  color: lightgray;
+  background: gray;
+  border: 1px solid gray;
+  transition: all 0.5s;
+  cursor: default
+}
+
+
+.dimensions {
+
+  position: relative;
+  height: 125px;
+  width: 100%;
+  margin-top: 0.5rem
+}
+
+
+.dimensions .element {
+
+  position: absolute;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  width: 100%
+}
+
+
+#width-row {
+
+  top: 0
+}
+
+
+#height-row {
+
+  top: 33%
+}
+
+
+#radius-row {
+
+  top: 67%
+}
+
+
+.dimensions input {
+
+  text-align: center;
+  width: 100%
+}
+
+
+.dimensions input:disabled {
+
+  color: gray
+}
+
+
+.dimensions label {
+
+  width: 100%
+}
+
+
+.cbx {
+
+  font-size: 0.75rem
+}
+
+
+#drawing {
+
+  min-height: 200px;
+  background-color: white;
+  display: flexbox;
+  border-radius: 7px
+}
+
+
+#drawing div {
+
+  display: inline-block;
+  margin: 1rem
+}
+
+
+
+
+
+

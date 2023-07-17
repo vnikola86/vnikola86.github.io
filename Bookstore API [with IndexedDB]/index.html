@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bookstore API</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="bookstore.js" ></script>
+
+    <script src="papaparse.min.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <table class="data">
+        <thead>
+
+          <tr class="search">
+            <th>
+              <div class="search-container">
+
+                <div id="search-section"><section><input type="text" id="search-box" placeholder="Enter author or title..."/></section><aside><button id="searchBtn" ><i class="bi bi-search"></i></button></aside></div>
+
+              </div>
+              <div>
+
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addBookModal" id="addBookBtn" >Add new book</button>
+                <button id="exportBtn" class="btn btn-primary">Export to CSV</button>
+                <input type="file" id="restoreDB" accept=".csv" style="display: none;">
+                <label for="restoreDB" class="btn btn-primary">Restore Database</label>
+
+              </div>
+            </th>
+          </tr>
+
+          <tr class="header">
+              <th>ID</th>
+              <th>Author</th>
+              <th>Title</th>
+              <th>ISBN</th>
+              <th>Average rating</th>
+              <th>Price (EUR)</th>
+              <th>Actions</th>
+          </tr>
+
+        </thead>
+      <tbody></tbody>
+    </table>
+
+  </div>
+
+
+<!-- Modals-->
+    <!-- Add Book Modal -->
+    <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+      <div class="modal-dialog modal-md">
+          <div class="modal-content">
+              <div class="modal-header border-0"><button class="btn-close fs-2" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+              <div class="modal-body text-center">
+                <div class="container">
+                    <!-- Add Book Heading-->
+                    <h2 class="fw-bold text-center text-white">ADD NEW BOOK</h2>
+
+                    <!-- Add Book Form -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-xl-10">
+
+                            <form id="addBookForm">
+                                <!-- Author input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="addAuthor" type="text" autofocus required minlength="2" maxlength="255" />
+                                    <label class="fs-5 text-muted" for="addAuthor">Author</label>
+                                </div>
+                                <!-- Title input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="addTitle" type="text" required maxlength="255" />
+                                    <label class="fs-5 text-muted" for="addTitle">Title</label>
+                                </div>
+                                <!-- ISBN input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="addISBN" type="text" required maxlength="20" />
+                                    <label class="fs-5 text-muted" for="addISBN">ISBN</label>
+                                </div>
+                                <!-- Average rating input-->
+                                <div class="form-floating mb-3">
+                                  <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="addRating" type="number" step="0.1" required min="0" max="5"/>
+                                  <label class="fs-5 text-muted" for="addRating">Average rating</label>
+                                </div>
+                                <!-- Price input-->
+                                <div class="form-floating mb-3">
+                                  <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="addPrice" type="number" min="1" required />
+                                  <label class="fs-5 text-muted" for="addPrice">Price</label>
+                                </div>
+                                <button class="btn btn-success btn-lg text-white" type="submit" >Add book</button>
+                                <button class="btn btn-primary btn-lg text-white" id="addBookReset" type="reset" >Reset</button>
+                                <button class="btn btn-secondary btn-lg text-white" id="addBookCancel" data-bs-dismiss="modal" type="reset" >Cancel</button>
+                                
+                            </form>
+
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+  <!-- Edit Book Modal -->
+  <div class="modal fade" id="editBookModal" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+      <div class="modal-dialog modal-md">
+          <div class="modal-content">
+              <div class="modal-header border-0"><button class="btn-close fs-2" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+              <div class="modal-body text-center">
+                <div class="container">
+                    <!-- Edit Book Heading-->
+                    <h2 class="fw-bold text-center text-white">EDIT BOOK</h2>
+
+                    <!-- Edit Book Form -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-xl-10">
+
+                            <form id="editBookForm">
+                                <!-- Author input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="editAuthor" type="text" autofocus required minlength="2" maxlength="255" />
+                                    <label class="fs-5 text-muted" for="editAuthor">Author</label>
+                                </div>
+                                <!-- Title input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="editTitle" type="text" required maxlength="255" />
+                                    <label class="fs-5 text-muted" for="editTitle">Title</label>
+                                </div>
+                                <!-- ISBN input-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="editISBN" type="text" required maxlength="20" />
+                                    <label class="fs-5 text-muted" for="editISBN">ISBN</label>
+                                </div>
+                                <!-- Average rating input-->
+                                <div class="form-floating mb-3">
+                                  <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="editRating" type="number"  step="0.1" required min="0" max="5"/>
+                                  <label class="fs-5 text-muted" for="editRating">Average rating</label>
+                                </div>
+                                <!-- Price input-->
+                                <div class="form-floating mb-3">
+                                  <input class="form-control border-0 rounded-0 border-bottom border-muted pt-5 pb-4 fs-4" id="editPrice" type="number" min="1" required />
+                                  <label class="fs-5 text-muted" for="editPrice">Price</label>
+                                </div>
+                                <button class="btn btn-success btn-lg text-white" type="submit" >Save</button>
+                                <button class="btn btn-secondary btn-lg text-white" data-bs-dismiss="modal" type="reset" >Cancel</button>
+                            </form>
+
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous">
+</script>
+
+</body>
+  
+</html>

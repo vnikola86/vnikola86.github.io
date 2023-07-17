@@ -1,0 +1,52 @@
+.divider {
+    margin: 1.25rem 0 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-image-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-image {
+    opacity: 1;
+    transition: transform 0.25s;
+    max-width: 100%;
+    height: auto;
+}
+
+.portfolio-image-bg {
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.portfolio-image-icon {
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.portfolio-image-container:hover .portfolio-image-bg {
+    opacity: 0.5;
+}
+
+.portfolio-image-container:hover .portfolio-image {
+    transform: scale(1.05);
+}
+
+.portfolio-image-container:hover .portfolio-image-icon {
+    opacity: 1;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Drawing App</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <section class="header">
+    
+          <form>
+    
+          <div class="parameters">
+    
+            <div class="block">
+    
+            <div class="element">
+              
+              <label>Select object type:</label><br>
+                  <select name="object" id="object" required>
+                    <option value="" selected disabled>Object type</option>
+                    <option value="rectangle">Rectangle</option>
+                    <option value="circle">Circle</option>
+                  </select>
+    
+            </div>
+    
+            <div class="element">
+    
+              <input type="checkbox" name="opacity" id="opacity"/>
+              <label class="cbx">Is the object transparent?</label>
+    
+            </div>
+    
+            <div class="element">
+    
+              <label>Select color:</label>
+              <input type="color" id="color" value="#0000FF" style="float: right">
+    
+            </div>
+    
+            </div>
+    
+            <div class="block">
+    
+                <label>Enter dimensions:</label>
+    
+                <div class="dimensions">
+    
+                <div class="element" id="width-row">
+    
+                          <section><label>Width: </label></section>
+                          <aside><input type="number" id="width" name="width" min="1" max="500" value="200" disabled/></aside>
+    
+                </div>
+                <div class="element" id="height-row">
+    
+                        <section><label>Height:</label></section>
+                        <aside><input type="number" id="height" name="height" min="1" max="500" value="100" disabled/></aside>
+                  
+                </div>
+                <div class="element" id="radius-row">
+    
+                        <section><label>Radius:</label></section>
+                        <aside><input type="number" id="radius" name="radius" min="1" max="500" value="100" disabled/></aside>
+                  
+                </div>
+    
+                </div>
+            </div>
+    
+            <div class="block buttons">
+    
+              <button type="reset" name="reset" id="reset">RESET</button>
+              <button type="submit" name="submit" id="submit" disabled>GENERATE</button>
+    
+            </div>
+    
+          </div>
+    
+          </form>
+    
+        </section>
+    
+        <section id="drawing"></section>
+    
+    </div>
+    
+</body>
+</html>
